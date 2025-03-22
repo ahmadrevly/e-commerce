@@ -9,6 +9,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const fileContent = fs.readFileSync(filePath, 'utf8');
     res.status(200).json({ content: fileContent });
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     res.status(500).json({ error: 'Failed to read file' });
   }

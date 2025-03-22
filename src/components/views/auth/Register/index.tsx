@@ -31,7 +31,7 @@ const RegisterView = () => {
 
     if (result.status === 200) {
       form.reset();
-      setIsLoading(false);
+      setIsLoading(true);
       push('/auth/login');
     } else {
       setIsLoading(false);

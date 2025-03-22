@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 import styles from './Register.module.scss'
 import Link from 'next/link';
 import { FormEvent, useState } from 'react';
-// import { error } from 'console';
 
 const RegisterView = () => {
 

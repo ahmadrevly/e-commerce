@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
+import fs from "fs";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -12,6 +13,15 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+export const getServerSideProps = async () => {
+  // ✅ Can use fs here (runs only on the server)
+  console.log(fs)
+
+  return {
+    props: {}, // will be passed to the page component as props
+  }
+};
 
 export default function Home() {
   return (

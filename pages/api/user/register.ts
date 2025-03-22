@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { signUp } from "@/src/lib/firebase/service";
+import { signUp } from "../../../src/lib/firebase/service";
 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -17,4 +17,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   } else {
     res.status(405).json({status: false, statusCode: 405, message: "Method Not Allowed"});
   }
+
+  
 }

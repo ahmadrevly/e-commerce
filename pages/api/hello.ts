@@ -1,13 +1,17 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from "next";
+// pages/api/readFile.ts
+import fs from 'fs';
+import path from 'path';
+import { NextApiRequest, NextApiResponse } from 'next';
 
-type Data = {
-  name: string;
+const handler = (req: NextApiRequest, res: NextApiResponse) => {
+  const filePath = path.join(process.cwd(), 'data', 'example.txt');
+  
+  try {
+    const fileContent = fs.readFileSync(filePath, 'utf8');
+    res.status(200).json({ content: fileContent });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to read file' });
+  }
 };
 
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>,
-) {
-  res.status(200).json({ name: "John Doe" });
-}
+export default handler;
